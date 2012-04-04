@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-Type" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Olivier Bazoud" />
+  <title>Web tambouille Contest 2012</title>
+  <!--[if lt IE 9]>
+      <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+  <div class="header">
+  <div class="navbar navbar-fixed-top">
+    <a href="http://github.com/obazoud/lottery"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Loterie</a>
+        <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.web-tambouille.fr/2012/03/24/un-pass-3-jours-pour-devoxx-france-a-gagner-sur-web-tambouille-concours.html">Web tambouille Contest 2012</a></li>
+              <li class="active"><a href="http://www.devoxx.com/display/FR12/Accueil">Devoxx France 2012</a></li>
+              <li class="active"><a href="http://www.twitter.com/obazoud">Suivez moi!</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+    <section>
+      <div class="row">
+        <div class="span4">
+          <div class="page-header">
+            <h2><small>Roue des dizaines</small></h2>
+          </div>
+          <div id="markL"></div>
+          <div id="wheelL"></div>
+        </div>
+        <div class="span4">
+          <div class="page-header">
+            <h2>Loterie <i class="icon-info-sign" id="help"></i> </h2>
+          </div>
+          <div class="alert alert-info">
+            <h3 class="alert-heading"><u>Résultat</u></h3>
+            <div id="draw1"><strong>&nbsp;&nbsp;-&nbsp;-&nbsp;-&nbsp;-</strong></div>
+            <div id="draw2"></div>
+            <div id="draw3"></div>
+          </div>
+          <div class="alert alert-success">
+            <h5 class="alert-heading">Temps avant le prochain tirage</h5>
+            <div id="clock">&nbsp;&nbsp;15&nbsp;s</div>
+          </div>
+          <div class="alert">
+            <h4 class="alert-heading">Informations</h4>
+            <div id="feedback"></div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="page-header">
+            <h2><small>Roue des unités</small></h2>
+          </div>
+          <div id="markR"></div>
+          <div id="wheelR"></div>
+        </div>
+      </div>
+    </section>
+    <section id="gridSystem">
+      <div class="row">
+      <div class="span3">
+        <div class="page-header">
+          <h2>Participants</h2>
+        </div>
+        <ul class="the-icons" id="nicknames">
+          <li> Aucun utilisateur connecté.</li>
+        </ul>
+      </div>
+      <div class="span3">
+        <div class="page-header">
+          <h2>Gagnants</h2>
+        </div>
+        <ul class="the-icons" id="winners">
+          <li> Aucun gagnant.</li>
+        </ul>
+      </div>
+      <div class="span6" id="lottery-grid">
+        <div class="page-header">
+          <h2>Votre grille</h2>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">01</span></div><div class="span1"><span class="badge badge-info">02</span></div>
+          <div class="span1"><span class="badge badge-info">03</span></div><div class="span1"><span class="badge badge-info">04</span></div>
+          <div class="span1"><span class="badge badge-info">05</span></div><div class="span1"><span class="badge badge-info">06</span></div>
+          <div class="span1"><span class="badge badge-info">07</span></div><div class="span1"><span class="badge badge-info">08</span></div>
+          <div class="span1"><span class="badge badge-info">09</span></div><div class="span1"><span class="badge badge-info">10</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">11</span></div><div class="span1"><span class="badge badge-info">12</span></div>
+          <div class="span1"><span class="badge badge-info">13</span></div><div class="span1"><span class="badge badge-info">14</span></div>
+          <div class="span1"><span class="badge badge-info">15</span></div><div class="span1"><span class="badge badge-info">16</span></div>
+          <div class="span1"><span class="badge badge-info">17</span></div><div class="span1"><span class="badge badge-info">18</span></div>
+          <div class="span1"><span class="badge badge-info">19</span></div><div class="span1"><span class="badge badge-info">20</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">21</span></div><div class="span1"><span class="badge badge-info">22</span></div>
+          <div class="span1"><span class="badge badge-info">23</span></div><div class="span1"><span class="badge badge-info">24</span></div>
+          <div class="span1"><span class="badge badge-info">25</span></div><div class="span1"><span class="badge badge-info">26</span></div>
+          <div class="span1"><span class="badge badge-info">27</span></div><div class="span1"><span class="badge badge-info">28</span></div>
+          <div class="span1"><span class="badge badge-info">29</span></div><div class="span1"><span class="badge badge-info">30</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">31</span></div><div class="span1"><span class="badge badge-info">32</span></div>
+          <div class="span1"><span class="badge badge-info">33</span></div><div class="span1"><span class="badge badge-info">34</span></div>
+          <div class="span1"><span class="badge badge-info">35</span></div><div class="span1"><span class="badge badge-info">36</span></div>
+          <div class="span1"><span class="badge badge-info">37</span></div><div class="span1"><span class="badge badge-info">38</span></div>
+          <div class="span1"><span class="badge badge-info">39</span></div><div class="span1"><span class="badge badge-info">30</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">41</span></div><div class="span1"><span class="badge badge-info">42</span></div>
+          <div class="span1"><span class="badge badge-info">43</span></div><div class="span1"><span class="badge badge-info">44</span></div>
+          <div class="span1"><span class="badge badge-info">45</span></div><div class="span1"><span class="badge badge-info">46</span></div>
+          <div class="span1"><span class="badge badge-info">47</span></div><div class="span1"><span class="badge badge-info">48</span></div>
+          <div class="span1"><span class="badge badge-info">49</span></div><div class="span1"><span class="badge badge-info">50</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">51</span></div><div class="span1"><span class="badge badge-info">52</span></div>
+          <div class="span1"><span class="badge badge-info">53</span></div><div class="span1"><span class="badge badge-info">54</span></div>
+          <div class="span1"><span class="badge badge-info">55</span></div><div class="span1"><span class="badge badge-info">56</span></div>
+          <div class="span1"><span class="badge badge-info">57</span></div><div class="span1"><span class="badge badge-info">58</span></div>
+          <div class="span1"><span class="badge badge-info">59</span></div><div class="span1"><span class="badge badge-info">60</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">61</span></div><div class="span1"><span class="badge badge-info">62</span></div>
+          <div class="span1"><span class="badge badge-info">63</span></div><div class="span1"><span class="badge badge-info">64</span></div>
+          <div class="span1"><span class="badge badge-info">65</span></div><div class="span1"><span class="badge badge-info">66</span></div>
+          <div class="span1"><span class="badge badge-info">67</span></div><div class="span1"><span class="badge badge-info">68</span></div>
+          <div class="span1"><span class="badge badge-info">69</span></div><div class="span1"><span class="badge badge-info">70</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">71</span></div><div class="span1"><span class="badge badge-info">72</span></div>
+          <div class="span1"><span class="badge badge-info">73</span></div><div class="span1"><span class="badge badge-info">74</span></div>
+          <div class="span1"><span class="badge badge-info">75</span></div><div class="span1"><span class="badge badge-info">76</span></div>
+          <div class="span1"><span class="badge badge-info">77</span></div><div class="span1"><span class="badge badge-info">78</span></div>
+          <div class="span1"><span class="badge badge-info">79</span></div><div class="span1"><span class="badge badge-info">80</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">81</span></div><div class="span1"><span class="badge badge-info">82</span></div>
+          <div class="span1"><span class="badge badge-info">83</span></div><div class="span1"><span class="badge badge-info">84</span></div>
+          <div class="span1"><span class="badge badge-info">85</span></div><div class="span1"><span class="badge badge-info">86</span></div>
+          <div class="span1"><span class="badge badge-info">87</span></div><div class="span1"><span class="badge badge-info">88</span></div>
+          <div class="span1"><span class="badge badge-info">89</span></div><div class="span1"><span class="badge badge-info">90</span></div>
+        </div>
+        <div class="row show-grid">
+          <div class="span1"><span class="badge badge-info">91</span></div><div class="span1"><span class="badge badge-info">92</span></div>
+          <div class="span1"><span class="badge badge-info">93</span></div><div class="span1"><span class="badge badge-info">94</span></div>
+          <div class="span1"><span class="badge badge-info">95</span></div><div class="span1"><span class="badge badge-info">96</span></div>
+          <div class="span1"><span class="badge badge-info">97</span></div><div class="span1"><span class="badge badge-info">98</span></div>
+          <div class="span1"><span class="badge badge-info">99</span></div><div class="span1"><span class="badge badge-info">100</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p class="pull-right"><a href="#">Revenir en haut</a></p>
+    <p>&nbsp;&nbsp; Propulsé par <a href="http://www.nodejs.org" title="Powered by Node.js" target="_blank">Node.js</a> et <a href="http://socket.io" title="Powered by Socket.IO" target="_blank">Socket.IO</a> &nbsp;&nbsp; // &nbsp;&nbsp; Un grand merci à <a href="http://twitter.github.com/bootstrap/" target="_blank" title="Bootstrap, from Twitter">Twitter Bootstrap</a> &nbsp;&nbsp; // &nbsp;&nbsp; Animations des roues faites avec <a href="http://www.css3.info" target="_blank">CSS3</a></p>
+  </footer>
+
+  <div id="loginModal" class="modal hide fade in" style="display: none; ">
+    <div class="modal-header">
+      <h3>Votre pseudo pour la loterie</h3>
+    </div>
+    <div class="modal-body">
+      <form id="set-nickname" class="form-horizontal">
+        <fieldset>
+          <div id="control-group" class="control-group">
+            <label class="control-label" for="focusedInput">Saisir votre pseudo</label>
+            <div class="controls">
+              <input id="nick" class="input-xlarge focused" id="focusedInput" type="text" placeholder="Pseudo...">
+              <span class="help-inline" id="nickname-already-exists">Ce pseudo est déjà utilisé.</span>
+              <span class="help-inline" id="nickname-invalid">Ce pseudo est invalide.</span>
+              <span class="help-inline" id="nickname-too-many-nicknames">100 utilisateurs sont déjà connectés, nous ne prenons plus de joueur pour le moment.</span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a id="modal-form-submit" href="#" class="btn btn-primary">Soumettre</a>
+    </div>
+  </div>
+
+  <div id="loadingModal" class="modal hide fade in" style="display: none; ">
+    <div class="modal-header">
+      <h3>Bienvenue à la loterie...</h3>
+    </div>
+    <div class="modal-body">
+      <p>Nous vous connectons à la loterie, veuillez patienter...</p>
+      <p>&nbsp;</p>
+      <div class="circle"></div>
+      <div class="circle1"></div>
+    </div>
+  </div>
+
+  <div id="helpContent" style="display: none; ">
+    Quelques rêgles:
+    <ul>
+      <li>2 utilisateurs connectés ne peuvent pas avoir le même pseudo</li>
+      <li>un tirage a lieu toutes les 15 secondes</li>
+      <li>2 utilsateurs ne peuvent pas jouer le même numéro</li>
+      <li>pas plus de 100 utilisateurs par partie</li>
+      <li>la grille n'est pas accessible deux secondes avant tirage et pendant deux secondes après</li>
+      <li>La roue de gauche tire les dizaines et la roue de droite tire les unités. Par exemple, si celle de gauche tire le chiffre "4" et celle de droite "8", le tirage sera le "48"</li>
+      <li>La roue tourne à partir de 8s avant le tirage et jusqu'au tirage.</li>
+      <li>Dans la grille, votre numéro s\'affiche avec le numéro en vert, les numéros libres sont en bleus, les numéros en orange ont été joués par d'autres joueurs</li>
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="/js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/vendor/underscore.min.js"></script>
+  <script type="text/javascript" src="/js/vendor/bootstrap-modal.js"></script>
+  <script type="text/javascript" src="/js/vendor/bootstrap-tooltip.js"></script>
+  <script type="text/javascript" src="/js/vendor/bootstrap-popover.js"></script>
+  <script type="text/javascript" src="/js/vendor/moment.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="/js/lottery.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+body {
+  padding-top: 20px;
+}
+
+/* Lottery
+-------------------------------------------------- */
+
+.the-icons {
+  margin-left: 0;
+  list-style: none;
+}
+
+section {
+  padding-top: 30px;
+}
+
+#nickname-already-exists {
+  visibility: hidden;
+}
+#nickname-invalid {
+  visibility: hidden;
+}
+#nickname-too-many-nicknames {
+  visibility: hidden;
+}
+
+.footer {
+  background-color: whiteSmoke;
+  margin-top: 40px;
+  padding: 25px 15px 10px;
+  border-top: 1px solid #E5E5E5;
+}
+
+footer p {
+  text-align: center;
+}
+#clock {
+  font-size:18px;
+}
+#draw1 {
+  font-size:18px;
+}
+#draw3 {
+  font-size:14px;
+}
+
+/* Wheel
+-------------------------------------------------- */
+#wheelL {
+  background-image:url('/img/wheel4.png');
+  background-repeat:no-repeat;
+  width:256px;
+  height:256px;
+  font-family:helvetica Neue;
+  font-size:30px;
+  padding:20px;
+}
+#wheelR {
+  background-image:url('/img/wheel4.png');
+  background-repeat:no-repeat;
+  width:256px;
+  height:256px;
+  font-family:helvetica Neue;
+  font-size:30px;
+  padding:20px;
+}
+#markL {
+  background-image:url('/img/mark.png');
+  background-repeat:no-repeat;
+  width:27px;
+  height:19px;
+  margin-left:135px;
+}
+#markR {
+  background-image:url('/img/mark.png');
+  background-repeat:no-repeat;
+  width:27px;
+  height:19px;
+  margin-left:135px;
+}
+.trans2d {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 100;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: 100;
+  -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+
+.stop2d {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-timing-function: ease-out;
+}
+
+
+/* Second Loadin Circle
+-------------------------------------------------- */
+.circle {
+  background-color: rgba(0,0,0,0);
+  border:5px solid rgba(0,183,229,0.9);
+  opacity:.9;
+  border-right:5px solid rgba(0,0,0,0);
+  border-left:5px solid rgba(0,0,0,0);
+  border-radius:50px;
+  box-shadow: 0 0 35px #2187e7;
+  width:50px;
+  height:50px;
+  margin:0 auto;
+  -moz-animation:spinPulse 1s infinite ease-in-out;
+  -webkit-animation:spinPulse 1s infinite linear;
+}
+.circle1 {
+  background-color: rgba(0,0,0,0);
+  border:5px solid rgba(0,183,229,0.9);
+  opacity:.9;
+  border-left:5px solid rgba(0,0,0,0);
+  border-right:5px solid rgba(0,0,0,0);
+  border-radius:50px;
+  box-shadow: 0 0 15px #2187e7; 
+  width:30px;
+  height:30px;
+  margin:0 auto;
+  position:relative;
+  top:-50px;
+  -moz-animation:spinoffPulse 1s infinite linear;
+  -webkit-animation:spinoffPulse 1s infinite linear;
+}
+
+@-moz-keyframes spinPulse {
+  0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+  50% { -moz-transform:rotate(145deg); opacity:1; }
+  100% { -moz-transform:rotate(-320deg); opacity:0; }
+}
+@-moz-keyframes spinoffPulse {
+  0% { -moz-transform:rotate(0deg); }
+  100% { -moz-transform:rotate(360deg);  }
+}
+@-webkit-keyframes spinPulse {
+  0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
+  50% { -webkit-transform:rotate(145deg); opacity:1;}
+  100% { -webkit-transform:rotate(-320deg); opacity:0; }
+}
+@-webkit-keyframes spinoffPulse {
+  0% { -webkit-transform:rotate(0deg); }
+  100% { -webkit-transform:rotate(360deg); }
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+.badge {
+  font-size: 14px;
+}
+.span1 {
+  width: 40px;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.show-grid {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.show-grid [class*="span"] {
+  text-align: center;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  min-height: 30px;
+  line-height: 30px;
+}
+
+.show-grid .show-grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+  background-color: #ccc;
+}
+[class*="span"] {
+  margin-left:6px;
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+.table th, .table td {
+  border-top: 0px;
+}
+
