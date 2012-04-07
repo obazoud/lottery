@@ -44,6 +44,16 @@ footer p {
   font-size:14px;
 }
 
+.social {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+}
+
+.social div {
+  float: left;
+  margin-right: 12px;
+}
+
 /* Wheel
 -------------------------------------------------- */
 #wheelL {
