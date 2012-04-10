@@ -14,7 +14,7 @@ module.exports.findUserByNickname = (nickname) ->
   users[nickname]
 
 module.exports.isValidNickname = (nickname) ->
-  return true if nickname
+  return true if escape(nickname) == nickname
   false
 
 module.exports.isTooManyNicknames = () ->
