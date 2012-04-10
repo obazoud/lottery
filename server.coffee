@@ -81,7 +81,7 @@ io.sockets.on "connection", (socket) ->
     socket.broadcast.emit "users bets", api.usersbets()
 
   socket.on "nickname", (nickname, callback) ->
-    nickname = sanitize(nickname)
+    nickname = sanitize(nickname).xss()
     logger.debug "nickname #{nickname}"
     if api.findUserByNickname nickname
       callback "already-exists"
