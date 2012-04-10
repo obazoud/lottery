@@ -178,6 +178,7 @@ $(document).ready(function() {
         $('#lottery-grid span:eq(' + (mybet - 1) + ')').removeClass('badge-success badge-warning badge-info').addClass('badge-success');
         socket.emit('user bet', mybet);
         $('#feedback')[0].innerHTML = 'Merci d\'avoir jouer le ' + mybet + '.';
+        _gaq.push(['_trackEvent', 'number-' + mybet, 'bet']);
       }
     } else {
       if (state == 'freeze') {
