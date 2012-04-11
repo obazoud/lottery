@@ -47,6 +47,7 @@
     "request": "*"
   },
   "scripts": {
+    "start": "supervisor --extensions 'node|coffee' server.js",
     "test": "vows --spec test/test-*.coffee"
   }
 }
