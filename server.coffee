@@ -1,19 +1,18 @@
 path = require 'path'
 util = require 'util'
-sanitize = require('validator').sanitize
 
 require './logger'
 require './common'
 
 # Directories
-rootPath = process.cwd()
+rootPath   = process.cwd()
 configPath = path.join @appPath, 'config'
 staticPath = path.join rootPath, 'public'
-env = process.env.NODE_ENV || 'development'
+env        = process.env.NODE_ENV || 'development'
 
 # Server
 express = require('express')
-app = express.createServer()
+app     = express.createServer()
 app.configure ->
   logger.info "Express server static directory: #{staticPath}"
   app.use express.static(staticPath)
@@ -81,27 +80,19 @@ io.sockets.on "connection", (socket) ->
     socket.broadcast.emit "users bets", api.usersbets()
 
   socket.on "nickname", (nickname, callback) ->
-    nickname = sanitize(nickname).xss()
     logger.debug "nickname #{nickname}"
-    if api.findUserByNickname nickname
-      callback "already-exists"
-    else
-      if !api.isValidNickname nickname
-        callback "invalid"
+    api.createUser nickname, socket.id, (error, user) ->
+      if error
+        logger.debug "nickname #{nickname} error: #{error} - #{user}"
+        callback error
       else
-        if api.isTooManyNicknames()
-          callback "too-many-nicknames"
-        else
-          logger.debug "nickname #{nickname} is a new user."
-          callback false
-          socket.nickname = nickname
-          api.createUser nickname, socket.id
-          socket.emit "nicknames", api.nicknames()
-          socket.emit "users bets", api.usersbets()
+        logger.debug "nickname #{nickname} is a new user."
+        callback false
+        socket.nickname = nickname
+        socket.emit "nicknames", api.nicknames()
+        socket.emit "users bets", api.usersbets()
 
   socket.on "disconnect", ->
-    if socket.nickname
-      api.removeUserByNickname socket.nickname
-    logger.debug "#{socket.id} disconnect."
-    api.removeUserBySocketId socket.id
+    logger.debug "#{socket.nickname} #{socket.id} disconnected."
+    api.removeUser socket.nickname, socket.id
     socket.broadcast.emit "nicknames", api.nicknames()

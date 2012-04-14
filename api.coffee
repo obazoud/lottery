@@ -1,40 +1,35 @@
-util = require 'util'
-_ = require 'underscore'
+util     = require 'util'
+_        = require 'underscore'
+sanitize = require('validator').sanitize
 
-EventEmitter = require('events').EventEmitter
-controller = new EventEmitter()
+EventEmitter   = require('events').EventEmitter
+controller     = new EventEmitter()
 module.exports = controller
 
 users = {}
-draw = {}
+draw  = {}
 count = 1
 timer = 14
 
-module.exports.findUserByNickname = (nickname) ->
-  users[nickname]
-
-module.exports.isValidNickname = (nickname) ->
-  return true if nickname
-  false
-
-module.exports.isTooManyNicknames = () ->
-  return true unless _.size(users) <= 100
-  false
-
-module.exports.createUser = (nickname, socketId) ->
+module.exports.createUser = (nickname, socketId, callback) ->
+  return callback "invalid", null if !nickname
+  nickname = sanitize(nickname).xss() if nickname
+  return callback "already-exists", null if users[nickname]
+  return callback "too-many-nicknames", null if _.size(users) > 100
+  return callback "invalid-socketId", null unless socketId
   users[nickname] = { nickname : nickname, socketId : socketId }
+  callback null, users[nickname]
 
 module.exports.bet = (nickname, number) ->
+  return false unless users[nickname]
   users[nickname].bet = number if nickname
 
 module.exports.usersbets = () ->
   bets = _.map users, (user, username) ->
     user.bet
 
-module.exports.removeUserByNickname = (nickname) ->
-  delete users[nickname]
-
-module.exports.removeUserBySocketId = (socketId) ->
+module.exports.removeUser = (nickname, socketId) ->
+  delete users[nickname] if nickname
   _.each users, (username, user) ->
     delete users[username] if user.socketId == socketId
 

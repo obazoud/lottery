@@ -44,10 +44,14 @@
   "devDependencies": {
     "vows": "0.6.2",
     "socket.io-client": "0.9.2",
+    "async": "0.1.18",
+    "phantom": "0.3.3",
     "request": "*"
   },
   "scripts": {
-    "start": "supervisor --extensions 'node|coffee' server.js",
-    "test": "vows --spec test/test-*.coffee"
+    "start": "node server.js",
+    "supervisor": "supervisor --extensions 'node|coffee' server.js",
+    "test": "vows --spec test/test-*.coffee",
+    "integration": "vows --spec test/integration/test-*.coffee"
   }
 }

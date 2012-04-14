@@ -2,6 +2,8 @@
 
 [Source](http://www.web-tambouille.fr/2012/03/24/un-pass-3-jours-pour-devoxx-france-a-gagner-sur-web-tambouille-concours.html)
 
+Continous integration: [![Build Status](https://secure.travis-ci.org/obazoud/lottery.png)](http://travis-ci.org/obazoud/lottery)
+
 # Déploiement
 
 Sur Heroku: [http://web-tambouille-contest.herokuapp.com](http://web-tambouille-contest.herokuapp.com)

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "Pre-commit local hooks..."
+npm test
+if [ "$?" -ne "0" ]; then
+  echo "vows test failed - commit denied."
+  exit 1
+fi
+npm run-script integration
+if [ "$?" -ne "0" ]; then
+  echo "vows integration failed - commit denied."
+  exit 1
+fi
+
+exit 0

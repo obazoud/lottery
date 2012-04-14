@@ -1,0 +1,21 @@
+#!/bin/sh
+echo "Pre-receive local hooks..."
+
+while read oldrev newrev refname
+do
+  echo "Preparing to run vows for $newrev"
+  git archive $newrev | tar -x -C /tmp/nodejs
+  echo "Running vows for $newrev"
+  cd /tmp/nodejs
+  npm test
+  if [ "$?" -ne "0" ]; then
+    echo "vows test failed on rev $newrev - push deniend."
+    exit 1
+  fi
+  npm run-script integration
+  if [ "$?" -ne "0" ]; then
+    echo "vows integration failed on rev $newrev - push deniend."
+    exit 1
+  fi
+done
+exit 0
